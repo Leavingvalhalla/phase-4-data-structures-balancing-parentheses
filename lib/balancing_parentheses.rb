@@ -1,3 +1,13 @@
 require_relative './stack'
 
-# your code here
+def balancing_parentheses(string)
+    stack = Stack.new
+    string.split('').each do |char|
+       if char == '('
+        stack.push(char)
+       else
+        stack.peek == '(' ? stack.pop : stack.push(char)
+       end
+    end
+    stack.size
+end
